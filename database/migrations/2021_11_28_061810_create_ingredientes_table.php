@@ -16,7 +16,7 @@ class CreateIngredientesTable extends Migration
         Schema::create('ingredientes', function (Blueprint $table) {
             $table->id();
             $table->string("nombre",20);
-            //$table->timestamps();
+            $table->softDeletes();
         });
     }
 

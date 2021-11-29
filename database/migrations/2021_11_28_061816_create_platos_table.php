@@ -16,12 +16,12 @@ class CreatePlatosTable extends Migration
         Schema::create('platos', function (Blueprint $table) {
             $table->id();
             $table->string("nombre",50);
-            $table->unsignedBigInteger("ingrediente_id");
+            //$table->unsignedBigInteger("ingrediente_id");
             $table->string("chef_id",12);
             $table->unsignedInteger("precio");
-            //$table->timestamps();
+            $table->softDeletes();
 
-            $table->foreign('ingrediente_id')->references('id')->on('ingredientes');
+            //$table->foreign('ingrediente_id')->references('id')->on('ingredientes');
             $table->foreign('chef_id')->references('rut')->on('chefs');
         });
     }

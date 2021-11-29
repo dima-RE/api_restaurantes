@@ -14,13 +14,11 @@ class CreateChefsTable extends Migration
     public function up()
     {
         Schema::create('chefs', function (Blueprint $table) {
-            //$table->id();
             $table->string("rut",12)->primary();
             $table->string("nombre",50);
             $table->string("especialidad",20);
             $table->string("restaurante_id",12);
-            //$table->;
-            //$table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('restaurante_id')->references('rut')->on('restaurantes');
         });
