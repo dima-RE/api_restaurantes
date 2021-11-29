@@ -14,7 +14,7 @@ class Chef extends Model
     protected $table = 'chefs';
     public $timestamps = false;
     protected $primaryKey = 'rut';
-    protected $incrementing = false;
+    public $incrementing = false;
     protected $keyType = 'string';
 
     public function restaurante(){

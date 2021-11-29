@@ -27,7 +27,6 @@ class PlatosController extends Controller
     {
         $plato = new Plato();
         $plato->nombre = $request->nombre;
-        //$plato->ingrediente_id = $request->ingrediente_id;
         $plato->chef_id = $request->chef_id;
         $plato->precio = $request->precio;
         $plato->save();
@@ -55,7 +54,6 @@ class PlatosController extends Controller
     public function update(Request $request, Plato $plato)
     {
         $plato->nombre = $request->nombre;
-        //$plato->ingrediente_id = $request->ingrediente_id;
         $plato->chef_id = $request->chef_id;
         $plato->precio = $request->precio;
         $plato->save();

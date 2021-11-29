@@ -13,9 +13,6 @@ class Restaurante extends Model
 
     protected $table = 'restaurantes';
     public $timestamps = false;
-    protected $primaryKey = 'rut';
-    protected $incrementing = false;
-    protected $keyType = 'string';
 
     //retorna los chefs asociados a un restaurante
     public function chefs(){

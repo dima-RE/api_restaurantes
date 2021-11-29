@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RestaurantesController;
+use App\Http\Controllers\ChefsController;
+use App\Http\Controllers\PlatosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResource('/restaurantes',RestaurantesController::class);
+Route::apiResource('/chefs',ChefsController::class);
+Route::apiResource('/platos',PlatosController::class);

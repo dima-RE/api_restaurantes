@@ -29,7 +29,7 @@ class RestaurantesController extends Controller
     public function store(Request $request)
     {
         $restaurante = new Restaurante();
-        $restaurante->rut = $request->rut;
+        $restaurante->nombre = $request->nombre;
         $restaurante->calle = $request->calle;
         $restaurante->ciudad = $request->ciudad;
         $restaurante->save();
@@ -56,6 +56,7 @@ class RestaurantesController extends Controller
      */
     public function update(Request $request, Restaurante $restaurante)
     {   
+        $restaurante->nombre = $request->nombre;
         $restaurante->calle = $request->calle;
         $restaurante->ciudad = $request->ciudad;
         $restaurante->save();

@@ -10,14 +10,11 @@ class Plato extends Model
 {
     use HasFactory,SoftDeletes;
 
-    protected $table = 'restaurantes';
+    protected $table = 'platos';
     public $timestamps = false;
 
     public function chef(){
         return $this->belongsTo(Chef::class);
     }
-
-    /*public function ingredientes(){
-        return $this->hasMany(Ingrediente::class);
-    }*/
+    
 }

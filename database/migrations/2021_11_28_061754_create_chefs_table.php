@@ -17,10 +17,10 @@ class CreateChefsTable extends Migration
             $table->string("rut",12)->primary();
             $table->string("nombre",50);
             $table->string("especialidad",20);
-            $table->string("restaurante_id",12);
+            $table->unsignedBigInteger("restaurante_id");
             $table->softDeletes();
 
-            $table->foreign('restaurante_id')->references('rut')->on('restaurantes');
+            $table->foreign('restaurante_id')->references('id')->on('restaurantes');
         });
     }
 
