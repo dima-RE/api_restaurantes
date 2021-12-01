@@ -27,7 +27,7 @@ class PlatosRequest extends FormRequest
             'nombre' => 'required|unique:platos,nombre',
             'descripcion' => 'required',
             'chef_id' => 'required',
-            'precio' => 'required|gte:1000',
+            'precio' => 'required|gte:1000|lte:100000',
         ];
     }
 
@@ -39,6 +39,7 @@ class PlatosRequest extends FormRequest
             'chef_id.required' => 'Debe seleccionar el chef que creó el plato.',
             'precio.required' => 'Debe ingresar el precio del plato.',
             'precio.gte' => 'El precio debe ser mayor o igual a 1.000',
+            'precio.lte' => 'El precio debe ser menor o igual a 100.000',
         ];
     }
 }
