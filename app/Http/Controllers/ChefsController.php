@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chef;
+use App\Http\Requests\ChefsRequest;
 use Illuminate\Http\Request;
 
 class ChefsController extends Controller
@@ -14,7 +15,11 @@ class ChefsController extends Controller
      */
     public function index()
     {
-        return Chef::all();
+        $chefs = Chef::all();
+        foreach ($chefs as $chef) {
+            $chef->load('restaurante');
+        }
+        return $chefs;
     }
 
     /**
@@ -23,7 +28,7 @@ class ChefsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ChefsRequest $request)
     {
         $chef = new Chef();
         $chef->rut = $request->rut;
@@ -42,6 +47,7 @@ class ChefsController extends Controller
      */
     public function show(Chef $chef)
     {
+        $chef->load('restaurante');
         return $chef;
     }
 

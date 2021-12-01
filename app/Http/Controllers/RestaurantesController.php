@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Restaurante;
+use App\Http\Requests\RestaurantesRequest;
 use Illuminate\Http\Request;
 
 class RestaurantesController extends Controller
@@ -26,7 +27,7 @@ class RestaurantesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RestaurantesRequest $request)
     {
         $restaurante = new Restaurante();
         $restaurante->nombre = $request->nombre;

@@ -16,7 +16,7 @@ class CreatePlatosTable extends Migration
         Schema::create('platos', function (Blueprint $table) {
             $table->id();
             $table->string("nombre",50);
-            $table->string("descripcion",100);
+            $table->string("descripcion",400);
             $table->string("chef_id",12);
             $table->unsignedInteger("precio");
             $table->softDeletes();

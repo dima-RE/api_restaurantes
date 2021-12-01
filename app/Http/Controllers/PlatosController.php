@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plato;
+use App\Http\Requests\PlatosRequest;
 use Illuminate\Http\Request;
 
 class PlatosController extends Controller
@@ -14,7 +15,11 @@ class PlatosController extends Controller
      */
     public function index()
     {
-        return Plato::all();
+        $platos = Plato::all();
+        foreach ($platos as $plato) {
+            $plato->load('chef');
+        }
+        return $platos;
     }
 
     /**
@@ -23,10 +28,11 @@ class PlatosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PlatosRequest $request)
     {
         $plato = new Plato();
         $plato->nombre = $request->nombre;
+        $plato->descripcion = $request->descripcion;
         $plato->chef_id = $request->chef_id;
         $plato->precio = $request->precio;
         $plato->save();
@@ -41,6 +47,7 @@ class PlatosController extends Controller
      */
     public function show(Plato $plato)
     {
+        $plato->load('chef');
         return $plato;
     }
 
@@ -54,6 +61,7 @@ class PlatosController extends Controller
     public function update(Request $request, Plato $plato)
     {
         $plato->nombre = $request->nombre;
+        $plato->descripcion = $request->descripcion;
         $plato->chef_id = $request->chef_id;
         $plato->precio = $request->precio;
         $plato->save();
